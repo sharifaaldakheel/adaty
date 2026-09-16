@@ -1,0 +1,55 @@
+/* Static top bar chrome (hamburger + square mark). */
+
+.app-header {
+  flex-direction: row-reverse;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* Corner inset matches the design (square sits ~44px from top/right). */
+  padding: 44px;
+  z-index: 2;
+}
+
+/* Group of action icons (info + language toggle). */
+.app-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Header icon buttons (info, globe). */
+.app-header__icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  color: var(--color-accent-strong);
+  cursor: pointer;
+  transition: color 0.18s ease;
+}
+
+.app-header__icon-btn:hover {
+  color: var(--color-card);
+}
+
+.app-header__icon-btn:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Logo — keeps the previous placeholder square's size, position, and radius. */
+.app-header__mark {
+  width: 60px;
+  height: 60px;
+  border-radius: 14px;
+  object-fit: contain;
+}

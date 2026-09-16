@@ -1,0 +1,120 @@
+/* Landing Screen layout. Reuses the shared design tokens from index.css;
+   no new colors are defined here. */
+
+.landing {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  overflow: hidden;
+}
+
+/* Vertical stack: robot above the card, both centered. */
+.landing__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150%;
+  max-width: 600px;
+}
+
+.landing__robot {
+  width: 340px;
+  height: auto;
+  /* Overlap the top of the card, as in the design. */
+  margin-bottom: -70px;
+  z-index: 2;
+  filter: drop-shadow(0 12px 24px rgba(60, 50, 130, 0.25));
+}
+
+.landing__card {
+  width: 100%;
+  min-height: 420px;
+  padding: 90px 44px 40px;
+  background-color: var(--color-card);
+  border-radius: var(--radius-card);
+  box-shadow: 0 30px 60px rgba(60, 50, 130, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: center;
+}
+
+.landing__title {
+  margin: 0 0 18px;
+  color: var(--color-white);
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.landing__desc {
+  margin: 0 0 auto;
+  color: var(--color-white);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.8;
+  opacity: 0.9;
+  max-width: 420px;
+}
+
+/* Start control: a wide light button with a small accent square beside it,
+   matching the design's bottom row. */
+.landing__cta {
+  display: flex;
+  align-items: stretch;
+  gap: 14px;
+  width: 100%;
+  margin-top: 36px;
+}
+
+.landing__start {
+  flex: 1 1 auto;
+  border: none;
+  border-radius: var(--radius-button);
+  background-color: var(--color-option-idle);
+  color: var(--color-option-idle-text);
+  font-family: inherit;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 18px 24px;
+  cursor: pointer;
+  transition: background-color 0.18s ease;
+}
+
+.landing__start:hover {
+  background-color: #e6e2da;
+}
+
+.landing__start:focus-visible {
+  outline: 3px solid var(--color-white);
+  outline-offset: 2px;
+}
+
+/* .landing__cta-badge {
+  flex: 0 0 auto;
+  width: 58px;
+  border-radius: var(--radius-option);
+  background-color: var(--color-option-selected);
+} */
+
+/* --- Responsive --- */
+@media (max-width: 520px) {
+  .landing__robot {
+    width: 170px;
+    margin-bottom: -54px;
+  }
+
+  .landing__card {
+    padding: 74px 22px 30px;
+  }
+
+  .landing__title {
+    font-size: 1.3rem;
+  }
+}

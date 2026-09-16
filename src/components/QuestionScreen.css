@@ -1,0 +1,128 @@
+/* Question Screen layout: centered card over a decorated page. */
+
+.question-screen {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  overflow: hidden;
+}
+
+/* Background rings now live in the shared RingDecoration component. */
+
+/* --- Card --- */
+.question-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 560px;
+  min-height: 480px;
+  padding: 40px 44px 48px;
+  background-color: var(--color-card);
+  border-radius: var(--radius-card);
+  box-shadow: 0 30px 60px rgba(60, 50, 130, 0.25);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top row: progress indicator and back button in opposite corners.
+   In RTL, progress sits at the start (right) and back at the end (left). */
+.question-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.question-card__back {
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--color-ring-track);
+  color: var(--color-white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.18s ease, opacity 0.18s ease;
+}
+
+.question-card__back:hover:not(:disabled) {
+  background-color: var(--color-accent);
+}
+
+.question-card__back:focus-visible {
+  outline: 3px solid var(--color-white);
+  outline-offset: 2px;
+}
+
+/* Disabled on the first question: dimmed and non-interactive. */
+.question-card__back:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.question-card__text {
+  margin: 28px 0 40px;
+  color: var(--color-white);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.question-card__options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: auto;
+}
+
+.question-card__next {
+  align-self: center;
+  margin-top: 40px;
+  min-width: 220px;
+  padding: 16px 32px;
+  border: none;
+  border-radius: var(--radius-button);
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  font-family: inherit;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.18s ease, opacity 0.18s ease;
+}
+
+.question-card__next:hover:not(:disabled) {
+  background-color: var(--color-accent-strong);
+}
+
+.question-card__next:focus-visible {
+  outline: 3px solid var(--color-white);
+  outline-offset: 2px;
+}
+
+/* Clear disabled state when no option is selected. */
+.question-card__next:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* --- Responsive: stack options on narrow screens --- */
+@media (max-width: 520px) {
+  .question-card {
+    padding: 28px 22px 34px;
+    min-height: unset;
+  }
+
+  .question-card__options {
+    grid-template-columns: 1fr;
+  }
+
+  .question-card__text {
+    font-size: 1.25rem;
+  }
+}

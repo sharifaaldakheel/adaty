@@ -1,0 +1,80 @@
+/* Shared animated background rings (used by the landing and question screens).
+   Uses only existing design tokens. */
+
+.ring-decoration {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.ring {
+  position: absolute;
+  border: 1px solid var(--color-decoration);
+  border-radius: 50%;
+}
+
+.ring--1 {
+  width: 560px;
+  height: 560px;
+}
+
+.ring--2 {
+  width: 760px;
+  height: 760px;
+  transform: translateX(60px);
+}
+
+.ring--3 {
+  width: 620px;
+  height: 620px;
+  transform: translate(-90px, 40px);
+}
+
+/* Slow, subtle drift. Each keyframe set keeps the ring's base offset so
+   motion stays gentle. Disabled when the user prefers reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  .ring--1 {
+    animation: ring-drift-1 18s ease-in-out infinite;
+  }
+
+  .ring--2 {
+    animation: ring-drift-2 24s ease-in-out infinite;
+  }
+
+  .ring--3 {
+    animation: ring-drift-3 21s ease-in-out infinite;
+  }
+
+  @keyframes ring-drift-1 {
+    0%,
+    100% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+      transform: translate(45px, -50px) rotate(8deg);
+    }
+  }
+
+  @keyframes ring-drift-2 {
+    0%,
+    100% {
+      transform: translate(60px, 0) rotate(0deg);
+    }
+    50% {
+      transform: translate(15px, 55px) rotate(-6deg);
+    }
+  }
+
+  @keyframes ring-drift-3 {
+    0%,
+    100% {
+      transform: translate(-90px, 40px) rotate(0deg);
+    }
+    50% {
+      transform: translate(-40px, -10px) rotate(7deg);
+    }
+  }
+}

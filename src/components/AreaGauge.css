@@ -1,0 +1,69 @@
+/* Circular gauge for one assessment area (used on the result screen). */
+
+.area-gauge {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.area-gauge__svg {
+  display: block;
+}
+
+/* Light track sits on the dark inner panel. */
+.area-gauge__track {
+  stroke: var(--color-white);
+}
+
+.area-gauge__bar {
+  /* Default stroke; a band modifier below overrides it based on the score. */
+  stroke: var(--color-score-mid);
+  transition: stroke-dashoffset 0.4s ease;
+}
+
+/* Arc color driven by performance band, not by area. */
+.area-gauge__bar--high {
+  stroke: var(--color-score-high);
+}
+
+.area-gauge__bar--mid {
+  stroke: var(--color-score-mid);
+}
+
+.area-gauge__bar--low {
+  stroke: var(--color-score-low);
+}
+
+.area-gauge__bar--zero {
+  stroke: var(--color-score-zero);
+}
+
+.area-gauge__center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 26px;
+}
+
+.area-gauge__label {
+  color: var(--color-white);
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.area-gauge__value {
+  color: var(--color-white);
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-top: 4px;
+  /* Keep the percentage left-to-right so the digits read naturally. */
+  direction: ltr;
+}

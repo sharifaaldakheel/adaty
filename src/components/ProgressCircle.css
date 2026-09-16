@@ -1,0 +1,36 @@
+/* Circular progress indicator shown in the top corner of the card. */
+
+.progress-circle {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-circle__svg {
+  display: block;
+}
+
+.progress-circle__track {
+  stroke: var(--color-ring-track);
+}
+
+.progress-circle__bar {
+  stroke: var(--color-accent);
+  transition: stroke-dashoffset 0.35s ease;
+}
+
+.progress-circle__label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  font-size: 0.8rem;
+  font-weight: 700;
+  /* Keep the counter left-to-right so it always reads "4/10". */
+  direction: ltr;
+}

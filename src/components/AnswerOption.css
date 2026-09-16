@@ -1,0 +1,39 @@
+/* Selectable answer option button. */
+
+.answer-option {
+  width: 100%;
+  min-height: 68px;
+  padding: 14px 18px;
+  border: none;
+  border-radius: var(--radius-option);
+  background-color: var(--color-option-idle);
+  color: var(--color-option-idle-text);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  /* Logical alignment so it follows the document direction (RTL/LTR). */
+  text-align: start;
+  cursor: pointer;
+  transition: background-color 0.18s ease, color 0.18s ease,
+    transform 0.05s ease;
+}
+
+.answer-option:hover {
+  background-color: #e6e2da;
+}
+
+.answer-option:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.answer-option:active {
+  transform: scale(0.99);
+}
+
+.answer-option--selected,
+.answer-option--selected:hover {
+  background-color: var(--color-option-selected);
+  color: var(--color-option-selected-text);
+}

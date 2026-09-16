@@ -1,0 +1,53 @@
+/* Global styles and design tokens for the AI Knowledge Assessment. */
+
+:root {
+  /* Palette taken from the approved design */
+  --color-page-bg: #f4f4f7;
+  --color-card: #4b3ea8;
+  --color-card-edge: #453a9c;
+  --color-option-idle: #efece7;
+  --color-option-idle-text: #2b2b3a;
+  --color-option-selected: #9184e6;
+  --color-option-selected-text: #ffffff;
+  --color-accent: #8a7ee0;
+  --color-accent-strong: #7a6dd8;
+  --color-white: #ffffff;
+  --color-ring-track: rgba(255, 255, 255, 0.22);
+  --color-decoration: rgba(120, 106, 214, 0.28);
+
+  /* Score-band colors: gauge arcs are colored by performance, not by area,
+     so a viewer can read the result from color alone.
+     high = green, mid = the existing purple, low = amber, zero = red. */
+  --color-score-high: #33b277;
+  --color-score-mid: var(--color-accent);
+  --color-score-low: #e0a13a;
+  --color-score-zero: #d95c5c;
+
+  --radius-card: 28px;
+  --radius-option: 12px;
+  --radius-button: 14px;
+
+  --font-base: "Tajawal", "Segoe UI", Tahoma, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-base);
+  background-color: var(--color-page-bg);
+  color: #1f2233;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+}
